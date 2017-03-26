@@ -29,6 +29,16 @@ void setup() {
   pinMode(buttonRedPin, INPUT);
   pinMode(buttonGreenPin, INPUT);
 
+  // Demo sequence
+  digitalWrite(ledBluePin, HIGH); // turn the yellow LED on
+  delay(1000);
+  digitalWrite(ledBluePin, LOW); // turn the yellow LED on
+  digitalWrite(ledYellowPin, HIGH); // turn the yellow LED on
+  delay(1000);
+  digitalWrite(ledYellowPin, LOW); // turn the yellow LED on
+  digitalWrite(ledRedPin, HIGH); // turn the yellow LED on
+  delay(1000);
+  digitalWrite(ledRedPin, LOW); // turn the yellow LED on
 }
 
 void loop() {
@@ -49,24 +59,74 @@ void loop() {
   // BLUE
   buttonBlueState = digitalRead(buttonBluePin);
   if (buttonBlueState == HIGH) {
-    digitalWrite(ledBluePin, HIGH); // turn the yellow LED on
+    digitalWrite(ledBluePin, HIGH); 
   } else {
-    digitalWrite(ledBluePin, LOW); // turn the yellow LED off
+    digitalWrite(ledBluePin, LOW); 
   }
 
   // RED
   buttonRedState = digitalRead(buttonRedPin);
   if (buttonRedState == HIGH) {
-    digitalWrite(ledRedPin, HIGH); // turn the yellow LED on
+    digitalWrite(ledRedPin, HIGH); 
+    delay(500);
+    victory();
   } else {
-    digitalWrite(ledRedPin, LOW); // turn the yellow LED off
+    digitalWrite(ledRedPin, LOW); 
   }
 
   // GREEN
   buttonGreenState = digitalRead(buttonGreenPin);
   if (buttonGreenState == HIGH) {
-    digitalWrite(ledGreenPin, HIGH); // turn the yellow LED on
+    digitalWrite(ledGreenPin, HIGH);
+    delay(500);
+    loser();
   } else {
-    digitalWrite(ledGreenPin, LOW); // turn the yellow LED off
+    digitalWrite(ledGreenPin, LOW); 
   }
 }
+
+void victory() {
+  for (int i=0;i<2;i++) {
+    digitalWrite(ledYellowPin, HIGH);
+    digitalWrite(ledBluePin, LOW);
+    digitalWrite(ledRedPin, LOW); 
+    digitalWrite(ledGreenPin, LOW);
+    delay(250);
+    digitalWrite(ledYellowPin, LOW);
+    digitalWrite(ledBluePin, HIGH); 
+    digitalWrite(ledRedPin, LOW); 
+    digitalWrite(ledGreenPin, LOW);
+    delay(250);
+    digitalWrite(ledYellowPin, LOW);
+    digitalWrite(ledBluePin, LOW); 
+    digitalWrite(ledRedPin, HIGH); 
+    digitalWrite(ledGreenPin, LOW);
+    delay(250);
+    digitalWrite(ledYellowPin, LOW);
+    digitalWrite(ledBluePin, LOW); 
+    digitalWrite(ledRedPin, LOW); 
+    digitalWrite(ledGreenPin, HIGH);
+    delay(250);
+    digitalWrite(ledYellowPin, LOW);
+    digitalWrite(ledBluePin, LOW); 
+    digitalWrite(ledRedPin, LOW); 
+    digitalWrite(ledGreenPin, LOW); 
+    delay(250);
+  }
+}
+
+void loser() {
+  for (int i=0;i<3;i++) {
+    digitalWrite(ledYellowPin, HIGH); 
+    digitalWrite(ledBluePin, HIGH); 
+    digitalWrite(ledRedPin, HIGH); 
+    digitalWrite(ledGreenPin, HIGH); 
+    delay(250);
+    digitalWrite(ledYellowPin, LOW); 
+    digitalWrite(ledBluePin, LOW); 
+    digitalWrite(ledRedPin, LOW); 
+    digitalWrite(ledGreenPin, LOW); 
+    delay(250);
+  }
+}
+
