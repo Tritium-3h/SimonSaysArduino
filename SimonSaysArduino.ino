@@ -1,11 +1,11 @@
-const int buttonYellowPin = 2;
-const int buttonBluePin = 4;
-const int buttonRedPin = 6;
+const int buttonBluePin = 2;
+const int buttonRedPin = 4;
+const int buttonYellowPin = 6;
 const int buttonGreenPin = 8;
 
-const int ledYellowPin = 3;
-const int ledBluePin = 5;
-const int ledRedPin = 7;
+const int ledBluePin = 3;
+const int ledRedPin = 5;
+const int ledYellowPin = 7;
 const int ledGreenPin = 9;
 
 // Create a global variable to hold the
